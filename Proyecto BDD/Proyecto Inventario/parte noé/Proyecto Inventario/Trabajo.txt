@@ -1,0 +1,7 @@
+Encargado					Alta tablas/Baja/Registrar
+
+Profesor					Consultar el material de las aulas
+						Alta averias
+
+SAT(Servicio atención al cliente)		Consultar el material de aulas
+						Modificar averías(solución, fecha)
