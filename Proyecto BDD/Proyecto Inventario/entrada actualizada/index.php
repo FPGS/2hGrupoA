@@ -75,50 +75,45 @@
 
 						<!-- Work -->
 							<article id="work">
-								<h2 class="major">Registrate aquí</h2>
+								<h2 class="major">Registrate aqui</h2>
 								<span class="image main"><img src="imagenes/descarga.jpg" alt="" /></span>
+								<form name="registro" id="registro" method="post" action="registrar.php">
 
 								<table align="center" width="40%">
 									<tr>
+										<td>Procedencia: </td>
+										<td><input type="radio" id="cbox1" name="cbox1" value="profesor"> <label for="cbox1">Soy profesor del centro</label>
+										
+										<input type="radio"  id="cbox1" name="cbox1" value="alumno"> <label for="cbox1"> Soy alumno del centro</label>
+									</tr>
+									<tr>
 										<td>Nombre y apellidos: </td>
-										<td><input type="text" name="nombre" id="nombre" >
+										<td><input type="text" name="nombrere" id="nombrere" >
 									</tr>
 									<tr>
-										<td>Dni: </td>
-										<td><input type="text" name="dni" id="dni" >
-									</tr>
-									
-									<tr>
-										<td>Usuario: </td>
+										<td>Usuario(Dni): </td>
 										<td><input type="text" name="usuariore" id="usuariore" >
 									</tr>
 									<tr>
-										<td>Contraseña:</td>
-										<td><input type="password" name="password" id="password" >
+										<td>Contrasea:</td>
+										<td><input type="password" name="clavere" id="clavere" >
 										
 									</tr>
 									<tr>
 										<td>Fecha de nacimiento: </td>
-										<td><input type="date" name="fecha" id="fecha" >
+										<td><input type="date" name="fechare" id="fechare" >
 									</tr>
 									
-									<td>Procedencia: </td>
-										<td><input type="checkbox" name="profesor" value="profesor"> Soy profesor del centro
-										
-										<td><input type="checkbox" name="alumno" value="alumno"> Soy alumno del centro
 									
 									
-									
-									
-									</table>
+								</table>
 								
 									<tr>
 										<td colspan="2" align="center">
 											<input type="submit" value="Registrar">
 										</td>
 									</tr>
-									
-								
+								</form>										
 							</article>
 
 						
