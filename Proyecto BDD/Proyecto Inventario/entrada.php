@@ -23,7 +23,7 @@ include("conexion.php");
 </tr>
 <tr>
 	<td>Clave:</td>
-	<td><input type="password" name="clave" id="clave" placeholder="Clave"></td>
+	<td><input type="password" name="password" id="password" placeholder="clave"></td>
 </tr>
 <tr>
 	<td colspan="2" align="center">
