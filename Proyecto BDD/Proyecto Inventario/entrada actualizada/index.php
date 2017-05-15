@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <!--
 	Dimension by HTML5 UP
 	html5up.net | @ajlkn
@@ -27,13 +27,13 @@
 							<div class="inner">
 								<h1>Salesianos Zaragoza</h1>
 									<p> 
-										<a href="http://zaragoza.salesianos.edu/"> Página principal</a> <br />
+										<a href="http://zaragoza.salesianos.edu/"> Pagina principal</a> <br />
 									</p>
 							</div>
 						</div>
 						<nav>
 							<ul>
-								<li><a href="#intro">Iniciar Sesión</a></li>
+								<li><a href="#intro">Iniciar Sesion</a></li>
 								<li><a href="#work">Registrase</a></li>
 								<li>
 								
@@ -47,7 +47,7 @@
 
 						<!-- Intro -->
 							<article id="intro">
-								<h2 class="major">Inicio sesión</h2>
+								<h2 class="major">Inicio sesion</h2>
 								<span class="image main"><img src="./imagenes/logosz.jpg" width="500" /></span>
 								<?php
 									include("conexion.php");
@@ -61,7 +61,7 @@
 									</tr>
 									<tr>
 										<td>Contraseña:</td>
-										<td><input type="password" name="contraseña" id="contraseña" placeholder="contraseña"></td>
+										<td><input type="password" name="contraseÃ±a" id="contraseÃ±a" placeholder="contraseÃ±a"></td>
 									</tr>
 									
 									</table>
@@ -75,33 +75,36 @@
 
 						<!-- Work -->
 							<article id="work">
-								<h2 class="major">Registrate aquí­</h2>
+								<h2 class="major">Registrate aqui</h2>
 								<span class="image main"><img src="imagenes/descarga.jpg" alt="" /></span>
+								<form name="registro" id="registro" method="post" action="registrar.php">
 
 								<table align="center" width="40%">
 									<tr>
+										<td>Procedencia: </td>
+										<td><input type="radio" id="cbox1" name="cbox1" value="profesor"> <label for="cbox1">Soy profesor del centro</label>
+										
+										<input type="radio"  id="cbox1" name="cbox1" value="alumno"> <label for="cbox1"> Soy alumno del centro</label>
+									</tr>
+									<tr>
 										<td>Nombre y apellidos: </td>
-										<td><input type="text" name="nombre" id="nombre" >
+										<td><input type="text" name="nombrere" id="nombrere" >
 									</tr>
 									<tr>
 										<td>Usuario(Dni): </td>
 										<td><input type="text" name="usuariore" id="usuariore" >
 									</tr>
 									<tr>
-										<td>Contraseña:</td>
-										<td><input type="password" name="contraseñare" id="contraseñare" >
+										<td>Contrasea:</td>
+										<td><input type="password" name="clavere" id="clavere" >
 										
 									</tr>
 									<tr>
 										<td>Fecha de nacimiento: </td>
-										<td><input type="date" name="fecha" id="fecha" >
+										<td><input type="date" name="fechare" id="fechare" >
 									</tr>
 									
-									<tr>Procedencia: 
-										<label><input type="checkbox" id="cbox1" name="profesor" value="profesor"> <label for="cbox1">Soy profesor del centro</label>
-										
-										<input type="checkbox"  id="cbox2" name="alumno" value="alumno"> <label for="cbox2"> Soy alumno del centro</label>
-									</tr>
+									
 									
 								</table>
 								
@@ -110,8 +113,7 @@
 											<input type="submit" value="Registrar">
 										</td>
 									</tr>
-									
-								
+								</form>										
 							</article>
 
 						
