@@ -110,24 +110,6 @@
 											<input type="submit" value="Registrar">
 										</td>
 									</tr>
-									<?php
-			include("conexion.php");
-
-			// Creamos la consulta.
-
-			$sql="INSERT INTO 'usuarios'('dni', 'nombre', 'contraseña', 'fechaNacimiento', 'tipoUsuario') VALUES ([value-1],[value-2],[value-3],[value-4],[value-5])"; 
-
-			//Ejecutamos la consulta.
-
-			$registros=mysqli_query($conexion, $sql);
-
-			// Leemos el contenido de $registros.
-
-			while ($linea=mysqli_fetch_array($registros)){
-				echo"<tr><td>$linea[dni]</td><td>$linea[alumno]</td><td>$linea[email]</td><td>$linea[telefono]</td><td>$linea[empresa]</td><td>$linea[estudio]</td></tr>";
-			}
-			mysqli_close($conexion);
-			?>
 									
 								
 							</article>
@@ -159,7 +141,6 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			
 
 	</body>
 </html>
