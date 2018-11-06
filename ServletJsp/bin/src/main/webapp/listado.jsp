@@ -17,11 +17,8 @@
 	<input type="submit" value="ver listado">
 </form>
 
-
-<input type="button" value="Create Owner" onclick="ed"/>
-
-<%
-	List<Owner> users = (List<Owner>)request.getAttribute("listAllUsers");
+<% 
+ List<User> users = (List<User>)request.getAttribute("listAllUsers");
  out.println(users);
  pageContext.setAttribute("users", users);
 %>
@@ -40,7 +37,6 @@
 			<td>Nombre</td>
 			<td>Fecha</td>
 			<td>Curso</td>
-			<td>Opciones</td>
 		</tr>
 	</thead>
 	<tbody>
@@ -49,8 +45,6 @@
 				<td><c:out value="${user1.name}"/> </td>
 				<td><c:out value="${user1.dateOfBirth}"/> </td>
 				<td><c:out value="${user1.course}"/> </td>
-				<td><a href="/edit?id=${user1.name}">EDITAR</a> </td>
-				
 	    	</tr>
 		</c:forEach>
 	</tbody>
@@ -76,21 +70,22 @@
 </thead>
 <tbody>
 <%
-	if(null != users && !users.isEmpty()){
-	for (Owner user2 : users) {
-		out.println("<tr>");
-		out.println("<td>");
-		out.println(user2.getCodOwner());
-		out.println("</td>");
-		out.println("<td>");
-		out.println(user2.getName());
-		out.println("</td>");
-		out.println("<td>");
-		out.println(user2.getSurname());
-		out.println("</td>");
-		out.println("</tr>");
-	}
-		
+
+if(null != users && !users.isEmpty()){
+for (User user2 : users) {
+	out.println("<tr>");
+	out.println("<td>");
+	out.println(user2.getName());
+	out.println("</td>");
+	out.println("<td>");
+	out.println(user2.getCourse());
+	out.println("</td>");
+	out.println("<td>");
+	out.println(user2.getDateOfBirth());
+	out.println("</td>");
+	out.println("</tr>");
+}
+	
 }
 %>
 </tbody>

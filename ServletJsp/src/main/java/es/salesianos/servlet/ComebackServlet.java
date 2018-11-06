@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
-import es.salesianos.model.User;
+import es.salesianos.model.Owner;
 import es.salesianos.model.assembler.UserAssembler;
 import es.salesianos.utils.DateConverter;
 

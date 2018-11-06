@@ -9,27 +9,27 @@ import java.util.List;
 
 import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
-import es.salesianos.model.User;
+import es.salesianos.model.Owner;
 
 public class Repository {
 
 	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test";
 	ConnectionManager manager = new ConnectionH2();
 
-	public User search(User userFormulario) {
-		User userInDatabase = null;
+	public Owner search(Owner userFormulario) {
+		Owner userInDatabase = null;
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		Connection conn = manager.open(jdbcUrl);
 		try {
-			prepareStatement = conn.prepareStatement("SELECT * FROM USER WHERE name = ?");
+			prepareStatement = conn.prepareStatement("SELECT * FROM OWNER WHERE name = ?");
 			prepareStatement.setString(1, userFormulario.getName());
 			resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
-				userInDatabase = new User();
-				userInDatabase.setName(resultSet.getString(1));
-				userInDatabase.setCourse(resultSet.getString(2));
-				userInDatabase.setDateOfBirth(resultSet.getString(3));
+				userInDatabase = new Owner();
+				userInDatabase.setCodOwner(resultSet.getInt(1));
+				userInDatabase.setName(resultSet.getString(2));
+				userInDatabase.setSurname(resultSet.getString(3));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -66,15 +66,14 @@ public class Repository {
 		}
 	}
 
-	public void insert(User userFormulario) {
+	public void insert(Owner userFormulario) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn
-					.prepareStatement("INSERT INTO USER (name,course,dateOfBirth)" + "VALUES (?, ?, ?)");
+					.prepareStatement("INSERT INTO OWNER (name,surname)" + "VALUES (?, ?)");
 			preparedStatement.setString(1, userFormulario.getName());
-			preparedStatement.setString(2, userFormulario.getCourse());
-			preparedStatement.setDate(3, new java.sql.Date(userFormulario.getDateOfBirth().getTime()));
+			preparedStatement.setString(2, userFormulario.getSurname());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -86,19 +85,17 @@ public class Repository {
 		manager.close(conn);
 	}
 
-	public void update(User userFormulario) {
+	public void update(Owner userFormulario) {
 		Connection conn = manager.open(jdbcUrl);
 
 		// codigo sql que inserta un usuario :P
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn
-					.prepareStatement("UPDATE USER SET name = ?,course = ? ,dateOfBirth = ? WHERE name = ?");
+					.prepareStatement("UPDATE OWNER SET name = ?,surname = ? WHERE codOwner = ?");
 			preparedStatement.setString(1, userFormulario.getName());
-			preparedStatement.setString(2, userFormulario.getCourse());
-			preparedStatement.setDate(3, new java.sql.Date(userFormulario.getDateOfBirth().getTime()));
-			// Añado esta linea por la condicion , cuarto interrogante--> DUDA
-			preparedStatement.setString(4, userFormulario.getName());
+			preparedStatement.setString(2, userFormulario.getSurname());
+			preparedStatement.setDate(3, new java.sql.Date(userFormulario.getCodOwner()));
 
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -111,19 +108,19 @@ public class Repository {
 
 	}
 
-	public List<User> searchAll() {
-		List<User> listUsers = new ArrayList<User>();
+	public List<Owner> searchAll() {
+		List<Owner> listUsers = new ArrayList<Owner>();
 		Connection conn = manager.open(jdbcUrl);
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		try {
-			prepareStatement = conn.prepareStatement("SELECT * FROM USER");
+			prepareStatement = conn.prepareStatement("SELECT * FROM OWNER");
 			resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
-				User userInDatabase = new User();
-				userInDatabase.setName(resultSet.getString(1));
-				userInDatabase.setCourse(resultSet.getString(2));
-				userInDatabase.setDateOfBirth(resultSet.getString(3));
+				Owner userInDatabase = new Owner();
+				userInDatabase.setCodOwner(resultSet.getInt(1));
+				userInDatabase.setName(resultSet.getString(2));
+				userInDatabase.setSurname(resultSet.getString(3));
 
 				listUsers.add(userInDatabase);
 			}

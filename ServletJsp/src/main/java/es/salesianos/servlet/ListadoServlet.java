@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import es.salesianos.model.User;
+import es.salesianos.model.Owner;
 import es.salesianos.service.Service;
 
 public class ListadoServlet extends HttpServlet {
@@ -18,7 +18,7 @@ public class ListadoServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<User> listAllUsers = servicio.listAllUsers();
+		List<Owner> listAllUsers = servicio.listAllUsers();
 		req.setAttribute("listAllUsers", listAllUsers);
 		redirect(req,resp);
 	}
