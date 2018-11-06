@@ -23,6 +23,18 @@
 		<servlet-name>AddOwnerServlet</servlet-name>
 		<url-pattern>/addOwner</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EditOwnerServlet</servlet-name>
+		<url-pattern>/editOwner</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteOwnerServlet</servlet-name>
+		<url-pattern>/deleteOwner</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UpdateOwnerServlet</servlet-name>
+		<url-pattern>/updateOwner</url-pattern>
+	</servlet-mapping>
 
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>

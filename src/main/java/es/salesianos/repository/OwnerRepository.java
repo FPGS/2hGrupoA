@@ -136,4 +136,48 @@ public class OwnerRepository {
 		return listOwners;
 	}
 
+	public void delete(Integer codOwner) {
+		Connection conn = manager.open(jdbcUrl);
+
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = conn
+					.prepareStatement("DELETE FROM OWNER WHERE codOwner = ?");
+			preparedStatement.setInt(1, codOwner);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			close(preparedStatement);
+			manager.close(conn);
+		}
+	}
+
+	public Owner searchByCodOwner(Integer codOwner) {
+		Owner ownerInDatabase = null;
+		ResultSet resultSet = null;
+		PreparedStatement prepareStatement = null;
+		Connection conn = manager.open(jdbcUrl);
+		try {
+			prepareStatement = conn.prepareStatement("SELECT * FROM OWNER WHERE codOwner = ?");
+			prepareStatement.setInt(1, codOwner);
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				ownerInDatabase = new Owner();
+				ownerInDatabase.setCodOwner(resultSet.getInt(1));
+				ownerInDatabase.setName(resultSet.getString(2));
+				ownerInDatabase.setSurname(resultSet.getString(3));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			close(resultSet);
+			close(prepareStatement);
+		}
+		manager.close(conn);
+		return ownerInDatabase;
+	}
+
 }

@@ -44,8 +44,8 @@ List<Owner> owners = (List<Owner>)request.getAttribute("listAllOwners");
 				<td><c:out value="${owner1.codOwner}"/> </td>
 				<td><c:out value="${owner1.name}"/> </td>
 				<td><c:out value="${owner1.surname}"/> </td>
-				<td><a href="/editOwner?id=${owner1.name}">EDIT</a> </td>
-				<td><a href="/deleteOwner?id=${owner1.name}">DELETE</a> </td>
+				<td><a href="/editOwner?codOwner=${owner1.name}">EDIT</a> </td>
+				<td><a href="/deleteOwner?codOwner=${owner1.name}">DELETE</a> </td>
 				
 	    	</tr>
 		</c:forEach>

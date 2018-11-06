@@ -21,9 +21,22 @@ public class OwnerService {
 			repository.update(userFormulario);
 		}
 	}
+	
+	public void update(Owner userFormulario) {
+			repository.update(userFormulario);
+	}
 
 	public List<Owner> listAllUsers() {
 		return repository.searchAll();
+	}
+
+	public void deleteOwner(Integer codOwner) {
+		repository.delete(codOwner);
+	}
+
+	public Owner search(Integer codOwner) {
+		return repository.searchByCodOwner(codOwner);
+		
 	}
 	
 }
