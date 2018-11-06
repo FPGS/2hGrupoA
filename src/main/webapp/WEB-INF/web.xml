@@ -18,6 +18,10 @@
 		<servlet-name>DeleteOwnerServlet</servlet-name>
 		<servlet-class>es.salesianos.servlet.DeleteOwnerServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>UpdateOwnerServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.UpdateOwnerServlet</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>AddOwnerServlet</servlet-name>
