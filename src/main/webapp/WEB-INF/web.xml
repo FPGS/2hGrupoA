@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_3_1.xsd"
+	version="3.1">
+
+	<display-name>Pet clinic</display-name>
+	<description></description>
+
+	<servlet>
+		<servlet-name>AddOwnerServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.AddOwnerServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EditOwnerServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.EditOwnerServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>DeleteOwnerServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.DeleteOwnerServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AddOwnerServlet</servlet-name>
+		<url-pattern>/addOwner</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+</web-app>     
